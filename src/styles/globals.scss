@@ -1,0 +1,401 @@
+@use "base";
+
+/* Header */
+
+#header {
+  background-color: base.$color-white;
+}
+
+#main {
+  min-height: 66.66vh;
+}
+
+#footer {
+  color: black;
+}
+
+.brand {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 200;
+  color: base.$color-black;
+}
+
+.tagline {
+  font-size: 400%;
+  font-family: "Rampart One", cursive;
+}
+
+#nav-icon3 {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  margin: 0;
+  transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon3 span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: base.$color-red;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+/* Icon3 */
+
+#nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+  top: 18px;
+}
+
+#nav-icon3 span:nth-child(4) {
+  top: 36px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-icon3.open span:nth-child(2) {
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon3.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.animate__animated.animate__fadeInUp {
+  --animate-duration: 3s;
+}
+
+/* Shining Text */
+
+.animate-shine {
+  font-size: 3em;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.animate-shine:hover {
+  background: #222 -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#222),
+      to(#222),
+      color-stop(0.5, #fff)
+    ) 0 0 no-repeat;
+  background-size: 150px;
+  color: base.$color-text;
+  background-clip: text;
+  animation-name: shine;
+  animation-duration: 3s;
+  text-shadow: 0 0px 0px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes shine {
+  0%,
+  10% {
+    background-position: -1000px;
+  }
+  20% {
+    background-position: top left;
+  }
+  100% {
+    background-position: 1000px;
+  }
+}
+
+/* Wave */
+
+.ocean {
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: base.$color-ocean;
+}
+
+.wave {
+  background: url(../../public/wave.svg) repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+/* Eyes */
+
+.eyes-box {
+  background-color: base.$color-black;
+  height: 600px;
+  width: 600px;
+  border-radius: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.eyes-holder {
+  background-color: base.$color-black;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  animation-name: updown;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+}
+
+.eyes {
+  justify-content: center;
+  position: relative;
+  animation-name: bigger;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+.rect1,
+.rect3 {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.rect1 {
+  transform: rotate(-45deg);
+  animation-name: hidden;
+  animation-duration: 1s;
+}
+
+.rect2 {
+  animation-name: hidden2;
+  animation-duration: 1.3s;
+}
+
+.rect3 {
+  transform: rotate(45deg);
+  animation-name: hidden3;
+  animation-duration: 1.6s;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  transform: scale(1);
+  animation-name: looking-eyes;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes updown {
+  1% {
+    top: 149px;
+  }
+  10% {
+    top: 140px;
+  }
+  30% {
+    top: 160px;
+  }
+  50% {
+    top: 140px;
+  }
+  70% {
+    top: 160px;
+  }
+  90% {
+    top: 140px;
+  }
+  100% {
+    top: 150px;
+  }
+}
+
+@keyframes looking-eyes {
+  10% {
+    transform: translate(30px, 0px);
+  }
+  20% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(-30px, 0px);
+  }
+  40% {
+    transform: translate(-30px, 30px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  60% {
+    transform: translate(30px, 30px);
+  }
+  70% {
+    transform: translate(-30px, 30px);
+  }
+  80% {
+    transform: translate(30px, 30px);
+  }
+  90% {
+    transform: translate(-30px, 30px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes bigger {
+  10% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(5);
+  }
+  50% {
+    transform: scale(5);
+  }
+  60% {
+    transform: scale(5);
+  }
+  70% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes hidden {
+  0% {
+    visibility: hidden;
+  }
+  90% {
+    visibility: hidden;
+  }
+}
+
+@keyframes hidden2 {
+  0% {
+    visibility: hidden;
+  }
+  90% {
+    visibility: hidden;
+  }
+}
+
+@keyframes hidden3 {
+  0% {
+    visibility: hidden;
+  }
+  90% {
+    visibility: hidden;
+  }
+}
+
+/* Text Gradient */
+
+.linear-wipe {
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #fff 20%,
+    base.$color-ocean 40%,
+    base.$color-ocean 60%,
+    #fff 80%
+  );
+  background-size: 200% auto;
+
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 1s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
