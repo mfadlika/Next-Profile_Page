@@ -11,7 +11,7 @@ export default function Header(): ReactElement {
   }
 
   return (
-    <header id="header" className="h-1/6 justify-center sticky top-0 z-50">
+    <header id="header" className="justify-center sticky top-0 z-50">
       <nav className="flex flex-wrap justify-between items-center xl:mx-auto max-w-screen-xl h-full max-xl:mx-1.5">
         <div onClick={isClicked == true ? onClick : (): void => {}}>
           <Link href="/" className="flex items-center">

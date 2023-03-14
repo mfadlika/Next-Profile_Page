@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="p-4 bg-white shadow xl:mx-auto md:px-6 md:py-8 dark:bg-gray-900 z-50"
+      className="p-4 bg-white shadow xl:mx-auto md:px-6 md:py-4 dark:bg-gray-900 z-50"
     >
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link href="/" className="flex items-center mb-4 sm:mb-0">
@@ -31,7 +31,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 sm:my-8" />
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2023{" "}
         <Link href="https://flowbite.com/" className="hover:underline">
