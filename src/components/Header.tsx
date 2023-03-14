@@ -1,6 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import HeaderModal from "./HeaderModal";
 
 export default function Header(): ReactElement {

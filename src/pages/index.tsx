@@ -1,4 +1,6 @@
 import Wave from "@/components/Wave";
+import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ReactElement } from "react";
 
 export default function Home(): ReactElement {
@@ -14,3 +16,12 @@ export default function Home(): ReactElement {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    ...(await serverSideTranslations(ctx.locale as string, [
+      "common",
+      "header",
+    ])),
+  },
+});

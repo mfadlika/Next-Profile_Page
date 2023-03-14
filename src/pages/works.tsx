@@ -1,6 +1,20 @@
-import ComingSoon from "@/components/ComingSoon";
-import React from "react";
+import { GetServerSideProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import ComingSoon from "../components/ComingSoon";
 
 export default function Works() {
-  return <ComingSoon text="Work"></ComingSoon>;
+  return (
+    <div>
+      <ComingSoon text="works"></ComingSoon>
+    </div>
+  );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => ({
+  props: {
+    ...(await serverSideTranslations(ctx.locale as string, [
+      "common",
+      "header",
+    ])),
+  },
+});

@@ -1,7 +1,8 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
-import React from "react";
 
 export default function Footer() {
+  const { t } = useTranslation();
   return (
     <footer
       id="footer"
@@ -16,17 +17,17 @@ export default function Footer() {
         <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
           <li>
             <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
-              About
+              {t("header.about")}
             </Link>
           </li>
           <li>
             <Link href="/policy" className="mr-4 hover:underline md:mr-6">
-              Privacy Policy
+              {t("header.policy")}
             </Link>
           </li>
           <li>
             <Link href="/contact" className="hover:underline">
-              Contact
+              {t("header.contact")}
             </Link>
           </li>
         </ul>
@@ -37,7 +38,7 @@ export default function Footer() {
         <Link href="https://flowbite.com/" className="hover:underline">
           fadlim™
         </Link>
-        . All Rights Reserved.
+        . {t("other.rightsText")}.
       </span>
     </footer>
   );
