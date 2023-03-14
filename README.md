@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to My Personal Website
 
-## Getting Started
+This is my personal website to get to know more about me and my progress, this website and all the corresponding styles is truly inspired by [Superrb](https://www.superrb.com) and animation of this website is with the help of [Animate Style](https://animate.style) and the helpful people mentioned below.
 
-First, run the development server:
+## Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- fadlim.space : [https://fadlim.space](https://fadlim.space)
+
+## Run Locally
+```
+$ git clone https://github.com/mfadlika/Next-Profile_Page.git
+$ cd Next-Profile_Page
+$ npm install
+$ npm run dev
+```
+## About the Website
+
+This website is built with Next JS and Tailwind, inspired by [Superrb](https://www.superrb.com) and animation of this website is with the help of [Animate Style](https://animate.style). To install Animate Style to your project:
+```
+$ npm install animate.css --save
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add it directly to your webpage using a CDN:
+```
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To implement it to your corresponding element you want to animate:
+- After installing Animate.css, add the class animate__animated to an element, along with any of the animation names (don't forget the animate__ prefix!):
+```
+<h1 class="animate__animated animate__bounce">An animated element</h1>
+```
+- And for more information you can deep dive to their website: [Animate Style](https://animate.style).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For the other animations, big thanks to their beautiful works:
+- The Menu Hamburger Icon Animation is animated by Jesse Couch, you can see the work and the source code at [Jesse Couch's CodePen](https://codepen.io/designcouch/pen/ExvwPY) account.
+- The Waves Animation is animated by Ted McDonald at [Ted McDonald's CodePen](https://codepen.io/tedmcdo/pen/PqxKXg).
+- The Shining Text Effect Animation on hovering the Navigation Link is animated by Fazlur Rahman at [Fazlur Rahman's CodePen](https://codepen.io/fazlurr/pen/qbWMRv) account.
