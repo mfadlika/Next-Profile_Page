@@ -2,18 +2,12 @@
 
 /* Header */
 
-#header {
-  background-color: base.$color-white;
+#header, #footer {
   height: 16.67vh;
 }
 
 #main {
   min-height: 66.66vh;
-}
-
-#footer {
-  height: 16.67vh;
-  color: black;
 }
 
 .brand {
@@ -26,6 +20,8 @@
   font-size: 400%;
   font-family: "Rampart One", cursive;
 }
+
+/* Icon3 */
 
 #nav-icon3 {
   width: 60px;
@@ -61,8 +57,6 @@
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
-
-/* Icon3 */
 
 #nav-icon3 span:nth-child(1) {
   top: 0px;
@@ -116,13 +110,13 @@
 }
 
 .animate-shine:hover {
-  background: #222 -webkit-gradient(
+  background: base.$color-super-black -webkit-gradient(
       linear,
       left top,
       right top,
-      from(#222),
-      to(#222),
-      color-stop(0.5, #fff)
+      from(base.$color-super-black),
+      to(base.$color-super-black),
+      color-stop(0.5, base.$color-super-white)
     ) 0 0 no-repeat;
   background-size: 150px;
   color: base.$color-text;
@@ -194,25 +188,25 @@
 
 /* Eyes */
 
-.eyes-box {
+.eyes-box,
+.eyes-holder {
   background-color: base.$color-black;
-  height: 600px;
-  width: 600px;
-  border-radius: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.eyes-box {
+  height: 600px;
+  width: 600px;
+  border-radius: 5%;
   position: relative;
   overflow: hidden;
 }
 
 .eyes-holder {
-  background-color: base.$color-black;
   height: 300px;
   width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   animation-name: updown;
   animation-duration: 9s;
@@ -240,13 +234,13 @@
 }
 
 .rect2 {
-  animation-name: hidden2;
+  animation-name: hidden;
   animation-duration: 1.3s;
 }
 
 .rect3 {
   transform: rotate(45deg);
-  animation-name: hidden3;
+  animation-name: hidden;
   animation-duration: 1.6s;
 }
 
@@ -320,28 +314,16 @@
   10% {
     transform: scale(1);
   }
-  20% {
-    transform: scale(1);
-  }
   30% {
     transform: scale(1);
   }
   40% {
     transform: scale(5);
   }
-  50% {
-    transform: scale(5);
-  }
   60% {
     transform: scale(5);
   }
   70% {
-    transform: scale(1);
-  }
-  80% {
-    transform: scale(1);
-  }
-  90% {
     transform: scale(1);
   }
   100% {
@@ -358,38 +340,20 @@
   }
 }
 
-@keyframes hidden2 {
-  0% {
-    visibility: hidden;
-  }
-  90% {
-    visibility: hidden;
-  }
-}
-
-@keyframes hidden3 {
-  0% {
-    visibility: hidden;
-  }
-  90% {
-    visibility: hidden;
-  }
-}
-
 /* Text Gradient */
 
 .linear-wipe {
   text-align: center;
   background: linear-gradient(
     to right,
-    #fff 20%,
+    base.$color-super-white 20%,
     base.$color-ocean 40%,
     base.$color-ocean 60%,
-    #fff 80%
+    base.$color-super-white 80%
   );
   background-size: 200% auto;
 
-  color: #000;
+  color: base.$color-super-black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
