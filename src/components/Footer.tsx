@@ -35,7 +35,7 @@ export default function Footer() {
       <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 sm:my-8" />
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2023{" "}
-        <Link href="https://flowbite.com/" className="hover:underline">
+        <Link href="/" className="hover:underline">
           fadlim™
         </Link>
         . {t("other.rightsText")}.
