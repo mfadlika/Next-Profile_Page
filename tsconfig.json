@@ -19,6 +19,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18n.js", "src/pages/Home.js", "next-i18next.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18n.js", "src/pages/Home.js", "next-i18next.config.js", "src/pages/api/server.ts"],
   "exclude": ["node_modules"]
 }

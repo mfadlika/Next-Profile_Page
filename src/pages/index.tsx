@@ -2,6 +2,7 @@ import Wave from "@/components/Wave";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ReactElement } from "react";
+import postAPI from "./api/server";
 
 export default function Home(): ReactElement {
   return (
@@ -17,11 +18,19 @@ export default function Home(): ReactElement {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => ({
-  props: {
-    ...(await serverSideTranslations(ctx.locale as string, [
-      "common",
-      "header",
-    ])),
-  },
-});
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const ip =
+    ctx.req.headers["x-forwarded-for"] ||
+    (ctx.req.socket.remoteAddress as string);
+
+  await postAPI(ip);
+
+  return {
+    props: {
+      ...(await serverSideTranslations(ctx.locale as string, [
+        "common",
+        "header",
+      ])),
+    },
+  };
+};
