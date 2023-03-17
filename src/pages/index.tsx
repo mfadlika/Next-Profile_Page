@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     ctx.req.headers["x-forwarded-for"] ||
     (ctx.req.socket.remoteAddress as string);
 
-  await postAPI(ip);
+  await postAPI(ip, "index");
 
   return {
     props: {
