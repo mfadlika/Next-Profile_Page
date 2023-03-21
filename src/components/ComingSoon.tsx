@@ -1,6 +1,5 @@
-import Link from "next/link";
-import React from "react";
 import { useTranslation } from "next-i18next";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 interface Props {
@@ -18,11 +17,11 @@ export default function ComingSoon({ text }: Props) {
       <div className="container">
         <div className="p-5 md:p-20 mx-2">
           <div className="text-center">
-            <h2 className="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+            <h2 className="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl dark:text-white">
               {activeLocale == "id"
                 ? `${t("other.page")}`
                 : `${t(`header.${text}`)}`}
-              <span className="text-indigo-600">
+              <span className="text-indigo-600 dark:text-rose-500">
                 {" "}
                 {activeLocale == "id"
                   ? `${t(`header.${text}`)}`

@@ -14,7 +14,10 @@ export default function Header(): ReactElement {
       <nav className="flex flex-wrap justify-between items-center xl:mx-auto max-w-screen-xl h-full max-xl:mx-1.5">
         <div onClick={isClicked == true ? onClick : (): void => {}}>
           <Link href="/" className="flex items-center">
-            <span className="brand animate__animated animate__tada self-center text-5xl max-md:text-4xl font-semibold text-black">
+            <span
+              id="brand"
+              className="brand animate__animated animate__tada self-center text-5xl max-md:text-4xl font-semibold text-black"
+            >
               fadlim · space
             </span>
           </Link>

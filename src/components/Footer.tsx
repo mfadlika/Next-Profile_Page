@@ -6,15 +6,15 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="p-4 bg-black shadow xl:mx-auto md:px-6 md:py-4 dark:bg-gray-900 z-50"
+      className="sticky p-4 bg-black shadow xl:mx-auto md:px-6 md:py-4 dark:bg-gray-900 z-50"
     >
       <div className="sm:flex sm:items-center sm:justify-between">
-        <Link href="/" className="flex items-center mb-4 sm:mb-0">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+        <Link href="/" className="flex items-center mb-0 sm:mb-0">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
             fadlim.space
           </span>
         </Link>
-        <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-3 mt-3 text-sm text-gray-500 sm:mb-6 dark:text-gray-400">
           <li>
             <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
               {t("header.about")}
@@ -32,7 +32,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700 sm:my-8" />
+      <hr className="my-0 border-gray-200 sm:mx-auto dark:border-gray-700 sm:my-2" />
       <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
         © 2023{" "}
         <Link href="/" className="hover:underline">

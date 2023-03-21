@@ -1,8 +1,10 @@
 import { useTranslation } from "next-i18next";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { MouseEventHandler, ReactElement } from "react";
 import Flag from "./FlagSVG";
+import { ToggleButton } from "./ToggleButton";
 import Wave from "./Wave";
 
 interface Props {
@@ -18,6 +20,7 @@ interface EnumNavLink {
 interface EnumNavLinks extends Array<EnumNavLink> {}
 
 export default function HeaderModal({ isClicked, onClick }: Props) {
+  const { theme, setTheme } = useTheme();
   const { t } = useTranslation();
 
   const router: NextRouter = useRouter();
@@ -119,6 +122,13 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
                   {Flag.deFlag}
                 </Link>
               </button>
+            </div>
+            <div className="flex justify-center mt-8">
+              <ToggleButton
+                value="Dark Mode"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                params={theme === "light" ? false : true}
+              ></ToggleButton>
             </div>
           </div>
         </div>
