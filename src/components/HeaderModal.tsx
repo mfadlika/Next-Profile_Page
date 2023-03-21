@@ -4,6 +4,7 @@ import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { MouseEventHandler, ReactElement } from "react";
 import Flag from "./FlagSVG";
+import Stars from "./Stars";
 import { ToggleButton } from "./ToggleButton";
 import Wave from "./Wave";
 
@@ -71,6 +72,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
         id="mega-menu-full-image-dropdown"
         className="bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600 h-full"
       >
+         {theme === "light" ? null : <Stars></Stars>}
         <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6">
           <ul className={styles.ul}>
             {navLink.slice(0, 3).map((props: EnumNavLink): ReactElement => {

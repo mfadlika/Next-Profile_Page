@@ -7,7 +7,7 @@ import { ReactElement } from "react";
 import postAPI from "./api/server";
 
 export default function Home(): ReactElement {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   return (
     <div id="home" className="pt-16">
       {theme === "light" ? null : <Stars></Stars>}
