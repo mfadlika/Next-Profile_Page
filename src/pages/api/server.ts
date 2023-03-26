@@ -8,7 +8,7 @@ export default async function postAPI(ip: string | string[], site: string) {
     await executeQuery({
       query:
         "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
-      values: [ip, site, data["country"], data["city"]],
+      values: [ip, site, data["country_name"], data["city"]],
     });
   } catch (error) {
     console.log(error);
