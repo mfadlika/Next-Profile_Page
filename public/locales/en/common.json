@@ -24,7 +24,7 @@
     "emailAddress": "Email Address",
     "message": "Message",
     "send": "Send",
-    "palceHolderName": "Your name",
+    "placeHolderName": "Your name",
     "placeHolderEmail": "Write me something..."
   }
 }

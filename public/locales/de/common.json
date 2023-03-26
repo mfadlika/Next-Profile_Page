@@ -24,7 +24,7 @@
     "emailAddress": "E-Mail-Addresse",
     "message": "Nachricht",
     "send": "Senden",
-    "palceHolderName": "Ihr Name",
+    "placeHolderName": "Ihr Name",
     "placeHolderEmail": "Schreiben Sie mir eine Nachricht..."
   }
 }
