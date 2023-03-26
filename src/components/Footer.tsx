@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="sticky p-0 bg-black shadow xl:mx-auto md:px-6 md:py-4 dark:bg-gray-900 z-50"
+      className="absolute w-screen bg-black shadow xl:mx-auto px-4 md:px-6 md:pt-2 dark:bg-gray-900"
     >
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link href="/" className="flex items-center mb-0 sm:mb-0">
