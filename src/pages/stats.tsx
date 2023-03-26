@@ -75,7 +75,7 @@ export default function Stats(props: any) {
   }
 
   const chart = {
-    labels: [...labels, Other Cities],
+    labels: [...labels, "Other Cities"],
     datasets: [
       {
         label: "Visitors",
@@ -88,7 +88,7 @@ export default function Stats(props: any) {
   };
 
   const pieChartCity = {
-    labels: [...cityLabels, Other Countries],
+    labels: [...cityLabels, "Other Countries"],
     datasets: [
       {
         label: "Visitors",
