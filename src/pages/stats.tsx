@@ -48,7 +48,7 @@ export default function Stats(props: any) {
       <div className="w-full mx-auto text-center text-6xl font-extrabold mb-8 text-gray-700 dark:text-gray-100">
         {t("header.stats")}
       </div>
-      <div className="grid grid-cols-2 gap-2 px-8 lg:grid-cols-4 md:gap-4">
+      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2 lg:grid-cols-4 md:gap-4 px-8">
         <Card
           label="Total Visitors"
           className="text-rose-500"
