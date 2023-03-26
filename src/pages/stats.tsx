@@ -3,11 +3,38 @@ import "chart.js/auto";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRef } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Pie } from "react-chartjs-2";
 import { getStat } from "./api/server";
 
+const backgroundColor = [
+  "rgba(255, 99, 132, 0.2)",
+  "rgba(54, 162, 235, 0.2)",
+  "rgba(255, 206, 86, 0.2)",
+  "rgba(75, 192, 192, 0.2)",
+  "rgba(153, 102, 255, 0.2)",
+  "rgba(255, 159, 64, 0.2)",
+  "rgba(32, 133, 236, 0.2)",
+  "rgba(132, 100, 160, 0.2)",
+  "rgba(206, 169, 188, 0.2)",
+  "rgba(10, 65, 122, 0.2)",
+];
+
+const borderColor = [
+  "rgba(255, 99, 132, 1)",
+  "rgba(54, 162, 235, 1)",
+  "rgba(255, 206, 86, 1)",
+  "rgba(75, 192, 192, 1)",
+  "rgba(153, 102, 255, 1)",
+  "rgba(255, 159, 64, 1)",
+  "rgba(32, 133, 236, 1)",
+  "rgba(132, 100, 160, 1)",
+  "rgba(206, 169, 188, 1)",
+  "rgba(10, 65, 122, 1)",
+];
+
 interface DataProps {
+  city: string;
+  country: string;
   the_date: number;
   count: number;
 }
@@ -16,29 +43,70 @@ interface DataArrayProps extends Array<DataProps> {}
 
 export default function Stats(props: any) {
   const { t } = useTranslation();
-  const ref = useRef();
 
   const graph: DataArrayProps = props.graph;
+  const city: DataArrayProps = props.city;
+  const country: DataArrayProps = props.country;
 
-  const labels: number[] = [];
-  const count: number[] = [];
-
-  console.log(props.stats[0]["total_visitors"]);
+  var labels: number[] = [];
+  var cityLabels: string[] = [];
+  var count: number[] = [];
+  var cityCount: number[] = [];
+  var countryLabels: string[] = [];
+  var countryCount: number[] = [];
 
   for (var val of graph) {
     labels.push(val.the_date);
     count.push(val.count);
   }
 
+  for (var val of city) {
+    cityLabels.push(val.city);
+    cityCount.push(val.count);
+  }
+
+  for (var val of country) {
+    countryLabels.push(val.country);
+    countryCount.push(val.count);
+  }
+
   const chart = {
     labels: [...labels],
     datasets: [
       {
-        label: "Visitor",
+        label: "Visitors",
         data: [...count],
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
+      },
+    ],
+  };
+
+  const pieChartCity = {
+    labels: [...cityLabels],
+    datasets: [
+      {
+        label: "Visitors",
+        data: [...cityCount],
+        fill: true,
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const pieChartCountry = {
+    labels: [...countryLabels],
+    datasets: [
+      {
+        label: "Visitors",
+        data: [...countryCount],
+        fill: true,
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
+        borderWidth: 1,
       },
     ],
   };
@@ -71,9 +139,8 @@ export default function Stats(props: any) {
         ></Card>
       </div>
 
-      <div className="py-8">
+      <div className="mt-4 py-8 border shadow">
         <Line
-          ref={ref}
           data={chart}
           height={400}
           options={{
@@ -82,9 +149,28 @@ export default function Stats(props: any) {
           }}
         />
       </div>
-      {/* <div>
-        <Pie ref={ref} data={chart} height={100} />
-      </div> */}
+      <div className="w-full grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-2 py-8">
+        <div className="border shadow pb-4">
+          <Pie
+            data={pieChartCity}
+            height={400}
+            options={{
+              maintainAspectRatio: false,
+              responsive: true,
+            }}
+          />
+        </div>
+        <div className="border shadow pb-4">
+          <Pie
+            data={pieChartCountry}
+            height={400}
+            options={{
+              maintainAspectRatio: false,
+              responsive: true,
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -94,7 +180,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     ctx.req.headers["x-forwarded-for"] ||
     (ctx.req.socket.remoteAddress as string);
 
-  var { graph, stats }: any = await getStat(ip, "stats");
+  var { graph, stats, city, country }: any = await getStat(ip, "stats");
 
   return {
     props: {
@@ -104,6 +190,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       ])),
       graph,
       stats,
+      city,
+      country,
     },
   };
 };
