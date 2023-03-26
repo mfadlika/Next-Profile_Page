@@ -3,14 +3,13 @@ import executeQuery from "../../../lib/db";
 
 export default async function postAPI(ip: string | string[], site: string) {
   try {
-    console.log(ip);
-    // const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
+    const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
 
-    // await executeQuery({
-    //   query:
-    //     "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
-    //   values: [ip, site, data["country"], data["city"]],
-    // });
+    await executeQuery({
+      query:
+        "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
+      values: [ip, site, data["country"], data["city"]],
+    });
   } catch (error) {
     console.log(error);
   }
