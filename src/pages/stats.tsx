@@ -75,11 +75,11 @@ export default function Stats(props: any) {
   }
 
   const chart = {
-    labels: [...labels, "Other Cities"],
+    labels: [...labels],
     datasets: [
       {
         label: "Visitors",
-        data: [...count, props.stats[0]["total_visitors"] - cityTotal],
+        data: [...count],
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
@@ -88,11 +88,11 @@ export default function Stats(props: any) {
   };
 
   const pieChartCity = {
-    labels: [...cityLabels, "Other Countries"],
+    labels: [...cityLabels, "Other Cities"],
     datasets: [
       {
         label: "Visitors",
-        data: [...cityCount, props.stats[0]["total_visitors"] - countryTotal],
+        data: [...cityCount, props.stats[0]["total_visitors"] - cityTotal],
         fill: true,
         backgroundColor: backgroundColor,
         borderColor: borderColor,
@@ -102,11 +102,11 @@ export default function Stats(props: any) {
   };
 
   const pieChartCountry = {
-    labels: [...countryLabels],
+    labels: [...countryLabels, "Other Countries"],
     datasets: [
       {
         label: "Visitors",
-        data: [...countryCount],
+        data: [...countryCount, props.stats[0]["total_visitors"] - countryTotal],
         fill: true,
         backgroundColor: backgroundColor,
         borderColor: borderColor,
