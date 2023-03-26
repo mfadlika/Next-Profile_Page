@@ -47,8 +47,8 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
       anchor: t("header.blog"),
     },
     {
-      href: "/license",
-      anchor: t("header.license"),
+      href: "/stats",
+      anchor: t("header.stats"),
     },
   ];
 
