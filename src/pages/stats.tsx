@@ -60,18 +60,18 @@ export default function Stats(props: any) {
   for (var val of graph) {
     labels.push(val.the_date);
     count.push(val.count);
-    cityTotal += val.count;
   }
 
   for (var val of city) {
     cityLabels.push(val.city);
     cityCount.push(val.count);
-    countryTotal += val.count;
+    cityTotal += val.count;
   }
 
   for (var val of country) {
     countryLabels.push(val.country);
     countryCount.push(val.count);
+    countryTotal += val.count;
   }
 
   const chart = {
@@ -106,7 +106,10 @@ export default function Stats(props: any) {
     datasets: [
       {
         label: "Visitors",
-        data: [...countryCount, props.stats[0]["total_visitors"] - countryTotal],
+        data: [
+          ...countryCount,
+          props.stats[0]["total_visitors"] - countryTotal,
+        ],
         fill: true,
         backgroundColor: backgroundColor,
         borderColor: borderColor,
