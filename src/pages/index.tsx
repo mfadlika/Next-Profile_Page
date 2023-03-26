@@ -11,7 +11,7 @@ export default function Home(): ReactElement {
   const [isDark, setIsDark] = useState<boolean>(true);
 
   useEffect(() => {
-    if (theme === "dark") {
+    if (theme === "dark" || theme === "system") {
       setIsDark(true);
     } else {
       setIsDark(false);

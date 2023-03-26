@@ -68,7 +68,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
   };
 
   useEffect(() => {
-    if (theme === "dark") {
+    if (theme === "dark" || theme === "system") {
       setIsDark(true);
     } else {
       setIsDark(false);
