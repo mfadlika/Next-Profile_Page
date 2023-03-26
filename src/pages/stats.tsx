@@ -52,17 +52,21 @@ export default function Stats(props: any) {
   var cityLabels: string[] = [];
   var count: number[] = [];
   var cityCount: number[] = [];
+  var cityTotal: number = 0;
   var countryLabels: string[] = [];
   var countryCount: number[] = [];
+  var countryTotal: number = 0;
 
   for (var val of graph) {
     labels.push(val.the_date);
     count.push(val.count);
+    cityTotal += val.count;
   }
 
   for (var val of city) {
     cityLabels.push(val.city);
     cityCount.push(val.count);
+    countryTotal += val.count;
   }
 
   for (var val of country) {
@@ -71,11 +75,11 @@ export default function Stats(props: any) {
   }
 
   const chart = {
-    labels: [...labels],
+    labels: [...labels, Other Cities],
     datasets: [
       {
         label: "Visitors",
-        data: [...count],
+        data: [...count, props.stats[0]["total_visitors"] - cityTotal],
         fill: true,
         backgroundColor: "rgba(75,192,192,0.2)",
         borderColor: "rgba(75,192,192,1)",
@@ -84,11 +88,11 @@ export default function Stats(props: any) {
   };
 
   const pieChartCity = {
-    labels: [...cityLabels],
+    labels: [...cityLabels, Other Countries],
     datasets: [
       {
         label: "Visitors",
-        data: [...cityCount],
+        data: [...cityCount, props.stats[0]["total_visitors"] - countryTotal],
         fill: true,
         backgroundColor: backgroundColor,
         borderColor: borderColor,
