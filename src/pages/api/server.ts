@@ -3,7 +3,7 @@ import executeQuery from "../../../lib/db";
 
 export default async function postAPI(ip: string | string[], site: string) {
   try {
-    const { data } = await axios.get(`http://ip-api.com/json/${ip}`);
+    const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
 
     await executeQuery({
       query:
@@ -31,13 +31,13 @@ export async function getStat(ip: string | string[], site: string) {
     });
     var city = await executeQuery({
       query:
-        "SELECT CONCAT(city, ', ', country) AS city, count(*) AS count FROM `server_visitor` GROUP BY city ORDER BY count DESC LIMIT 10",
+        "SELECT CONCAT(city, ', ', country) AS city, count(*) AS count FROM `server_visitor` GROUP BY city ORDER BY count DESC LIMIT 9",
       values: [],
     });
 
     var country = await executeQuery({
       query:
-        "SELECT country, count(*) AS count FROM `server_visitor` GROUP BY country ORDER BY count DESC LIMIT 10",
+        "SELECT country, count(*) AS count FROM `server_visitor` GROUP BY country ORDER BY count DESC LIMIT 9",
       values: [],
     });
 
