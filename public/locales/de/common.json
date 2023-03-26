@@ -13,5 +13,18 @@
     "page": "Seite",
     "waitText": "in der Zwischenzeit können Sie mein Profil besuchen:",
     "rightsText": "Alle Rechte vorbehalten"
+  },
+  "contact": {
+    "greeting": "Hallo!",
+    "sentence": "Kontaktieren Sie mich, bitte",
+    "email": "Email",
+    "talk": "Lass uns reden!",
+    "enquiries": "Für Anfragen, senden Sie mir eine Email mit dem unten stehenden Formular, bitte",
+    "name": "Name",
+    "emailAddress": "E-Mail-Addresse",
+    "message": "Nachricht",
+    "send": "Senden",
+    "palceHolderName": "Ihr Name",
+    "placeHolderEmail": "Schreiben Sie mir eine Nachricht..."
   }
 }

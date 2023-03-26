@@ -6,12 +6,25 @@
     "blog": "Blog",
     "license": "Lisensi",
     "policy": "Kebijakan & Privasi",
-    "switchLanguage": "Ubah Bahasa"
+    "switchLanguage": "Beralih Bahasa"
   },
   "other": {
     "comingSoon": "Segera Datang",
     "page": "Halaman",
     "waitText": "sementara waktu, silahkan kunjungi profil saya:",
     "rightsText": "Hak Cipta Dilindungi"
+  },
+  "contact": {
+    "greeting": "Halo",
+    "sentence": "Silahkan kontak saya",
+    "email": "Surel",
+    "talk": "Mari Berbincang!",
+    "enquiries": "Untuk pertanyaan, silahkan email via formulir di bawah",
+    "name": "Nama",
+    "emailAddress": "Alamat Surel",
+    "message": "Pesan",
+    "send": "Kirim",
+    "placeHolderName": "Nama Anda",
+    "placeHolderEmail": "Kirimi saya pesan..."
   }
 }

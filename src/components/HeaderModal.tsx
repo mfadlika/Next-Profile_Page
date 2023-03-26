@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
-import { MouseEventHandler, ReactElement } from "react";
+import { MouseEventHandler, ReactElement, useEffect, useState } from "react";
 import Flag from "./FlagSVG";
 import Stars from "./Stars";
 import { ToggleButton } from "./ToggleButton";
@@ -23,6 +23,7 @@ interface EnumNavLinks extends Array<EnumNavLink> {}
 export default function HeaderModal({ isClicked, onClick }: Props) {
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState<boolean>(true);
 
   const router: NextRouter = useRouter();
 
@@ -66,13 +67,21 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
       "M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z",
   };
 
+  useEffect(() => {
+    if (theme === "dark") {
+      setIsDark(true);
+    } else {
+      setIsDark(false);
+    }
+  }, [theme]);
+
   return (
     <nav className={styles.nav}>
       <div
         id="mega-menu-full-image-dropdown"
         className="bg-white border-gray-200 shadow-sm border-y dark:bg-gray-800 dark:border-gray-600 h-full"
       >
-         {theme === "light" ? null : <Stars></Stars>}
+        {isDark ? <Stars></Stars> : null}
         <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-3 md:px-6">
           <ul className={styles.ul}>
             {navLink.slice(0, 3).map((props: EnumNavLink): ReactElement => {
@@ -106,7 +115,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
           </ul>
           <div className={styles.aBox}>
             <p className="max-w-xl mb-5 font-extrabold leading-tight tracking-tight text-white">
-              Switch Language
+              {t("header.switchLanguage")}
             </p>
             <div className="flex justify-between mx-auto">
               <button type="button" className={styles.button}>
@@ -135,7 +144,9 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
           </div>
         </div>
       </div>
-      <Wave></Wave>
+      <div className="fixed bottom-20">
+        <Wave></Wave>
+      </div>
     </nav>
   );
 }
