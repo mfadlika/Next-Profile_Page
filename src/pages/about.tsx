@@ -2,41 +2,49 @@ import Eyes from "@/components/Eyes";
 import { GetServerSideProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
+import { NextRouter, useRouter } from "next/router";
 import postAPI from "./api/server";
 
 export default function About() {
+  const router: NextRouter = useRouter();
+  const { locale } = router;
   return (
-    <div className="h-max lg:pt-16 lg:px-20 md:pt-12 md:px-6 pt-9 px-4 dark:bg-gray-900">
+    <div className="h-max lg:px-20 md:px-6 px-4 dark:bg-gray-900">
       <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
         <div className="w-full lg:w-6/12">
-          <p className="font-bold text-5xl leading-3 text-indigo-700 my-5 dark:text-indigo-500 hover:text-indigo-800 cursor-pointer pb-2">
+          <p className="font-bold text-5xl leading-3 text-indigo-700 my-5 dark:text-indigo-500 hover:text-indigo-800 cursor-pointer pt-16 pb-2">
             About
           </p>
           <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 dark:text-white leading-9">
             Hello friends! This page is about me, the owner of this webiste.
           </h2>
           <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Welcome to my Profile
-            Website. Let me introduce you to a Full Stack Web Developer who
-            really is passionate about making eye-catching website and
-            application. My standard of art and design is seriously high, but
-            unfortunately I&#8217;m a bit lack in UI/UX skill, so great chance
-            in a few months from now you may see a lot of changes of appearance
-            of this website as I gain more and more art references that catch my
-            eyes as I will always continue learning and updating my skills.
+            <span className="max-sm:hidden">
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </span>
+            Welcome to my Profile Website. Let me introduce you to a Full Stack
+            Web Developer who really is passionate about making eye-catching
+            website and application. My standard of art and design is seriously
+            high, but unfortunately I&#8217;m a bit lack in UI/UX skill, so
+            great chance in a few months from now you may see a lot of changes
+            of appearance of this website as I gain more and more art references
+            that catch my eyes as I will always continue learning and updating
+            my skills.
           </p>
           <p className="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Skills that I have
-            achieved this far is making a responsive website with React
-            Framework and Tailwind, for the website itself, I&#8217;m using one
-            of React JS Library, Next JS for both server and client side. My
-            other skills are Node JS, Express JS and Django for server side.
-            I&#8217;m really good in some programming languages such as
+            <span className="max-sm:hidden">
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </span>
+            Skills that I have achieved this far is making a responsive website
+            with React Framework and Tailwind, for the website itself, I&#8217;m
+            using one of React JS Library, Next JS for both server and client
+            side. My other skills are Node JS, Express JS and Django for server
+            side. I&#8217;m really good in some programming languages such as
             Javacsript, TypeScript, Python and C++ and still counting because I
             love to learn new stuff.
           </p>
         </div>
-        <div className="w-full flex justify-center lg:w-6/12">
+        <div className="w-full grid sm:flex justify-center lg:w-6/12">
           <Eyes></Eyes>
         </div>
       </div>
@@ -116,6 +124,22 @@ export default function About() {
           </p>
         </div>
       </div>
+      {locale == "id" ? (
+        <div className="flex text-center w-full mx-auto my-8 border shadow py-8 px-2 sm:px-8 sm:w-6/12 font-bold">
+          Filosofi dari slogan “Through the Waves” adalah tentang seseorang yang
+          telah dan sedang mengarungi ombak kehidupan. Kehidupan seperti pasang
+          surut ombak, penuh dengan suka duka yang menjadikan semua yang
+          menjalaninya sebagai “Pelintas Kehidupan” atau lebih tepatnya disebut
+          “Penyintas Kehidupan”.
+        </div>
+      ) : (
+        <div className="flex text-center w-full mx-auto my-8 border shadow py-8 px-2 sm:px-8 sm:w-6/12 font-bold">
+          The philosophy of the tagline “Through the Waves” is about someone who
+          went and is going through the waves of life. This life itself is like
+          the waves, full of “Ups & Downs” and making all people on it become a
+          “Life Surfer” or more precise called a “Life Survivor”.
+        </div>
+      )}
     </div>
   );
 }
