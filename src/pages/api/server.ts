@@ -7,7 +7,7 @@ export default async function postAPI(ip: string | string[], site: string) {
 
     await executeQuery({
       query:
-        "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
+        "INSERT INTO server_visitor (ip, site, country, city) WHERE country IS NOT NULL VALUES(?, ?, ?, ?)",
       values: [ip, site, data["country_name"], data["city"]],
     });
   } catch (error) {

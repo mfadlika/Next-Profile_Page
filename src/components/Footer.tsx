@@ -10,24 +10,24 @@ export default function Footer() {
     >
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link href="/" className="flex items-center mb-0 sm:mb-0">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+          <span className="self-center text-xl font-semibold whitespace-nowrap text-white">
             fadlim.space
           </span>
         </Link>
-        <ul className="flex flex-wrap items-center mb-3 mt-3 text-sm text-gray-500 sm:mb-6 dark:text-gray-400">
+        <ul className="flex flex-wrap items-center mb-3 mt-3 text-sm text-gray-500 sm:mb-1 dark:text-gray-400">
           <li>
-            <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
+            <Link href="/blog" className="mr-4 hover:underline md:mr-6 ">
+              {t("header.blog")}
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="mr-4 hover:underline md:mr-6">
               {t("header.about")}
             </Link>
           </li>
           <li>
-            <Link href="/policy" className="mr-4 hover:underline md:mr-6">
-              {t("header.policy")}
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="hover:underline">
-              {t("header.contact")}
+            <Link href="/stats" className="hover:underline">
+              {t("header.stats")}
             </Link>
           </li>
         </ul>
