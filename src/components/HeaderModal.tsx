@@ -144,7 +144,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-20">
+      <div className="fixed bottom-5 sm:bottom-20">
         <Wave></Wave>
       </div>
     </nav>
