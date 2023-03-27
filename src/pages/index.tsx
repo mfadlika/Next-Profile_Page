@@ -26,7 +26,7 @@ export default function Home(): ReactElement {
       <div className="flex justify-center items-center text-8xl max-sm:text-7xl">
         <span className="tagline linear-wipe">THE WAVES</span>
       </div>
-      <div className="fixed bottom-20">
+      <div className="fixed bottom-10 sm:bottom-20">
         <Wave></Wave>
       </div>
     </div>
