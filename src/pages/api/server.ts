@@ -5,11 +5,11 @@ export default async function postAPI(ip: string | string[], site: string) {
   try {
     const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
 
-    // await executeQuery({
-    //   query:
-    //     "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
-    //   values: [ip, site, data["country_name"], data["city"]],
-    // });
+    await executeQuery({
+      query:
+        "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
+      values: [ip, site, data["country_name"], data["city"]],
+    });
   } catch (error) {
     console.log(error);
   }
@@ -21,7 +21,7 @@ export async function getStat(ip: string | string[], site: string) {
 
     var graph = await executeQuery({
       query:
-        "SELECT DATE_FORMAT(created_at, '%m-%d') AS the_date, COUNT(*) AS count FROM server_visitor WHERE created_at BETWEEN DATE_FORMAT(DATE(NOW() - INTERVAL 14 DAY), '%Y-%m-%d') AND DATE_FORMAT(DATE(NOW()), '%Y-%m-%d') GROUP BY the_date",
+        "SELECT DATE_FORMAT(created_at, '%m-%d') AS the_date, COUNT(*) AS count FROM server_visitor WHERE created_at BETWEEN DATE_FORMAT(DATE(NOW() - INTERVAL 7 DAY), '%Y-%m-%d') AND DATE_FORMAT(DATE(NOW()), '%Y-%m-%d') GROUP BY the_date",
       values: [],
     });
     var stats = await executeQuery({
