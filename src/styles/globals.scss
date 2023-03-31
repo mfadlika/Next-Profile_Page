@@ -36,6 +36,7 @@
   #header {
     @apply header dark:dark-header;
   }
+  
   #brand {
     @apply brand dark:dark-brand;
   }
@@ -128,6 +129,11 @@
 
 .animate__animated.animate__fadeInUp {
   --animate-duration: 3s;
+}
+
+.animate__animated.animate__bounceInDown {
+  position: fixed;
+  --animation-fill-mode: inherit;
 }
 
 /* Shining Text */

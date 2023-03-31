@@ -5,11 +5,11 @@ export default async function postAPI(ip: string | string[], site: string) {
   try {
     const { data } = await axios.get(`https://ipapi.co/${ip}/json/`);
 
-    await executeQuery({
-      query:
-        "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
-      values: [ip, site, data["country_name"], data["city"]],
-    });
+    // await executeQuery({
+    //   query:
+    //     "INSERT INTO server_visitor (ip, site, country, city) VALUES(?, ?, ?, ?)",
+    //   values: [ip, site, data["country_name"], data["city"]],
+    // });
   } catch (error) {
     console.log(error);
   }
