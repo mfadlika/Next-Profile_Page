@@ -54,7 +54,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
 
   const styles: { [key: string]: string } = {
     nav: `absolute animate__animated ${
-      isClicked ? "animate__bounceInDown" : "hidden"
+      isClicked ? "abs-header animate__bounceInDown" : "hidden"
     } bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 h-screen w-full`,
     ul: "mt-10 mb-4 space-y-14 md:mb-0 max-md:mx-auto max-md:text-center",
     a: `animate__animated ${
