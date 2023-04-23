@@ -58,7 +58,7 @@ export default function HeaderModal({ isClicked, onClick }: Props) {
     } bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 h-screen w-full`,
     ul: "mt-10 mb-4 space-y-14 md:mb-0 max-md:mx-auto max-md:text-center",
     a: `animate__animated ${
-      isClicked ? "animate__fadeInUp" : "hidden"
+      isClicked ? "" : "hidden"
     } hover:underline`,
     aBox: "mt-10 p-8 text-left bg-local bg-gray-500 bg-center bg-no-repeat bg-cover rounded-lg bg-blend-multiply hover:bg-blend-soft-light dark:hover:bg-blend-darken",
     button:
